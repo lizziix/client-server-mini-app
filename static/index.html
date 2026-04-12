@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Products</h1>
+
+    <!-- Форма добавления -->
+    <section class="card" id="add-section">
+      <h2>Add product</h2>
+      <form id="add-form" data-testid="add-form">
+        <div class="form-row">
+          <input type="number" id="input-id"    name="id"    placeholder="ID"    required data-testid="input-id" />
+          <input type="text"   id="input-name"  name="name"  placeholder="Name"  required data-testid="input-name" />
+          <input type="number" id="input-price" name="price" placeholder="Price" required step="0.01" min="0.01" data-testid="input-price" />
+          <button type="submit" data-testid="btn-add">Add</button>
+        </div>
+        <p class="form-error" id="add-error" data-testid="add-error"></p>
+      </form>
+    </section>
+
+    <!-- Таблица продуктов -->
+    <section class="card">
+      <h2>Product list</h2>
+      <table id="products-table" data-testid="products-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="products-body" data-testid="products-body">
+        </tbody>
+      </table>
+      <p class="empty-msg" id="empty-msg" data-testid="empty-msg" style="display:none;">No products yet.</p>
+    </section>
+  </div>
+
+  <!-- Модальное окно редактирования -->
+  <div class="modal-overlay" id="modal-overlay" data-testid="modal-overlay" style="display:none;">
+    <div class="modal" role="dialog" aria-modal="true">
+      <h2>Edit product</h2>
+      <form id="edit-form" data-testid="edit-form">
+        <input type="hidden" id="edit-id" />
+        <label>Name
+          <input type="text" id="edit-name" required data-testid="edit-name" />
+        </label>
+        <label>Price
+          <input type="number" id="edit-price" required step="0.01" min="0.01" data-testid="edit-price" />
+        </label>
+        <p class="form-error" id="edit-error" data-testid="edit-error"></p>
+        <div class="modal-actions">
+          <button type="submit" data-testid="btn-save">Save</button>
+          <button type="button" id="btn-cancel" data-testid="btn-cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

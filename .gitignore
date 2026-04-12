@@ -1,0 +1,5 @@
+# Виртуальные окружения
+venv/
+env/
+.new-venv/
+new-venv/
