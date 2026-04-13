@@ -53,6 +53,19 @@ uvicorn app.main:app --reload
 | PUT | `/products/{id}` | Обновить продукт |
 | DELETE | `/products/{id}` | Удалить продукт |
 
+## Запуск через Docker
+
+```bash
+# Собрать образ
+docker build -t products-api .
+
+# Запустить контейнер
+docker run -p 8000:8000 products-api
+```
+
+- UI → `http://localhost:8000`
+- Swagger → `http://localhost:8000/docs`
+
 ## Тесты
 
 ```bash
